@@ -33,7 +33,11 @@
 
     <section>
       <h2>TECNOLOGÍAS</h2>
-      <p>{{ tecnologias }}</p>
+      <ul>
+        @for (tecnologia of tecnologias; track tecnologia) {
+          <li>{{ tecnologia }}</li>
+        }
+      </ul>
     </section>
   </main>
 </div>
