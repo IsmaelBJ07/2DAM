@@ -5,6 +5,10 @@ header {
     background-color: #1f3a5f;
 }
 
+header img {
+    border-radius: 50%;
+}
+
 .main{
     flex:1;
 
