@@ -1,7 +1,30 @@
 body{
     background-color: rgb(68, 67, 67);
     align-content: center;
-    zoom: 130%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1;
+    padding-top: 40px;
+}
+
+nav {
+    margin-top: 20px;
+    text-align: center;
+    zoom: 1.4;
+}
+
+nav a {
+    margin: 0 8px;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: rgb(247, 69, 69);
 }
 
 h2 {
@@ -19,12 +42,6 @@ section {
     border-radius: 50px;
 }
 
-
-/* 
- PoppinsLocal esta cogido de un tff de Google Fonts llamado Poppins.
- Luego lo puse en Convertio.com (espectacular el nombre de la web), 
- y puse el font-face de abajo creando el nombre y poniendo el enlace de donde esta el archivo.
-*/
 @font-face {
     font-family: 'PoppinsLocal';
     src: url('fonts/Poppins-Regular.woff');
@@ -48,5 +65,22 @@ section {
 
 .pacifico {
     font-family: 'Pacifico', cursive;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+.social-links img {
+    display: block;
+    width: 25px;
+    height: 25px;
 }
 
