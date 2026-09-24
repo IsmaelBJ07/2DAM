@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'cv-angular';
+  title = 'c  v-angular';
   //Cabecera
   nombre = 'Ismael';
   apellidos = 'Belhach Jimenez';
@@ -26,7 +26,7 @@ export class AppComponent {
   empresa = 'REWE';
   puesto = 'ABAP Junior Developer';
   formacion = 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma';
-  tecnologias = 'HTML · CSS · Angular · Java · JS · SQL · Git · GitHub · ABAP';
+  tecnologias = ['HTML', 'CSS', 'Angular', 'Java', 'JS', 'SQL', 'Git', 'GitHub', 'ABAP'];
   textoFooter = 'Currículum desarrollado con Angular';
   fecha = new Date();
 
