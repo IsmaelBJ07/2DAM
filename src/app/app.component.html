@@ -1,0 +1,41 @@
+<header>
+  <h1>{{ nombre }} {{ apellidos }}</h1>
+</header>
+
+<div class="main">
+  <aside>
+    <h2>Contacto</h2>
+    <p>Ciudad: {{ ciudad }}</p>
+    <p>Teléfono: {{ numero }}</p>
+    <p>Correo: {{ correo }}</p>
+    <p>GitHub: {{ github }}</p>
+    <p>Idiomas: {{ idiomas }}</p>
+  </aside>
+
+  <main>
+    <section>
+      <h2>SOBRE MÍ</h2>
+      <p>{{ sobreMi }}</p>
+    </section>
+
+    <section>
+      <h2>EXPERIENCIA</h2>
+      <h3>{{ empresa }}</h3>
+      <p>{{ puesto }}</p>
+    </section>
+
+    <section>
+      <h2>FORMACIÓN</h2>
+      <p>{{ formacion }}</p>
+    </section>
+
+    <section>
+      <h2>TECNOLOGÍAS</h2>
+      <p>{{ tecnologias }}</p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>{{ textoFooter }} - {{ fecha | date: 'dd/MM/yyyy' }}</p>
+</footer>
