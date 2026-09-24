@@ -1,17 +1,24 @@
 header {
+    display: flex;
+    flex-direction: row;
     padding: 25px;
     color: white;
     text-align: center;
     background-color: #1f3a5f;
 }
 
+header h1 {
+    align-self: center;
+}
+
 header img {
-    border-radius: 50%;
+    display: block;
+    margin: 1px 50px 5px;
+    border-radius: 55%;
 }
 
 .main{
     flex:1;
-
     display: flex;
     flex-direction: row;
 }

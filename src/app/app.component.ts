@@ -1,5 +1,4 @@
-import { DatePipe } from '@angular/common';
-import { NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -27,10 +26,10 @@ export class AppComponent {
   empresa = 'REWE';
   puesto = 'ABAP Junior Developer';
   formacion = 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma';
-  tecnologias = 'HTML · CSS · Angular · Java · SQL · Git · GitHub · ABAP';
+  tecnologias = 'HTML · CSS · Angular · Java · JS · SQL · Git · GitHub · ABAP';
   textoFooter = 'Currículum desarrollado con Angular';
   fecha = new Date();
 
-  Foto = 'imagenes/unnamed.jpg';
+  Foto = '/assets/imagenes/foto.jpg';
 
 }

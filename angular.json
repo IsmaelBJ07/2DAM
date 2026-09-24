@@ -28,7 +28,7 @@
               {
                 "glob": "**/*",
                 "input": "src/app/imagenes",
-                "output": "imagenes"
+                "output": "assets/imagenes"
               }
             ],
             "styles": [
