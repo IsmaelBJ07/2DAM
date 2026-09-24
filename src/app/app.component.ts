@@ -31,6 +31,6 @@ export class AppComponent {
   textoFooter = 'Currículum desarrollado con Angular';
   fecha = new Date();
 
-  Foto = 'images/foto.jpg';
+  Foto = 'imagenes/unnamed.jpg';
 
 }
