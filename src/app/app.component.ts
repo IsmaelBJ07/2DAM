@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe],
+  imports: [RouterOutlet, DatePipe, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -29,5 +30,7 @@ export class AppComponent {
   tecnologias = 'HTML · CSS · Angular · Java · SQL · Git · GitHub · ABAP';
   textoFooter = 'Currículum desarrollado con Angular';
   fecha = new Date();
+
+  Foto = 'images/foto.jpg';
 
 }
