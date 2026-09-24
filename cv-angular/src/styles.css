@@ -10,6 +10,7 @@
 }
 
 html, body, app-root {
+    width: 75%;
   height: 100%;
 }
 
