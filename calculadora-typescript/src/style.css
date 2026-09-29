@@ -1,0 +1,98 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #202020;
+  background: #424242;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 300px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculadora {
+  width: min(100%, 320px);
+  padding: 18px;
+  border: 2px solid #b9bec2;
+  border-radius: 14px;
+  background: #d3d6d8;
+  box-shadow: 0 8px 0 #a6aaad, 0 16px 28px rgb(30 35 38 / 18%);
+}
+
+.pantalla {
+  min-height: 82px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: 3px solid #8d9690;
+  border-radius: 5px;
+  background: #dce8cd;
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 12%);
+}
+
+.etiqueta-pantalla {
+  color: #56634f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.pantalla output {
+  width: 100%;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.teclas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+
+button {
+  height: 52px;
+  border: 1px solid #aeb2b5;
+  border-radius: 7px;
+  background: #f8f8f6;
+  color: #242424;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #aeb2b5;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #aeb2b5;
+}
+
+.tecla-funcion {
+  background: #c3c7c9;
+}
+
+.tecla-operacion {
+  background: #e5a14b;
+}
+
+.tecla-cero {
+  grid-column: span 2;
+}
+
+@media (max-width: 360px) {
+  .calculadora { padding: 14px; }
+  .teclas { gap: 7px; }
+  button { height: 48px; }
+}
