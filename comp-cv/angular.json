@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "prueba-ng2": {
+    "cv-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/prueba-ng2",
+            "outputPath": "dist/cv-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -24,6 +24,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/imagenes",
+                "output": "assets/imagenes"
               }
             ],
             "styles": [
@@ -59,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "prueba-ng2:build:production"
+              "buildTarget": "cv-angular:build:production"
             },
             "development": {
-              "buildTarget": "prueba-ng2:build:development"
+              "buildTarget": "cv-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "1696a1d7-6e0d-4c94-9e3d-78883cd182b3"
+    "analytics": false
   }
 }
