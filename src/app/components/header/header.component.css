@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px;
+  color: white;
+  text-align: left;
+  background-color: #1f3a5f;
+}
+
+.datos {
+  flex: 1;
+}
+
+header h1 {
+  margin: 0;
+  align-self: center;
+}
+
+.profesion {
+  margin-top: 8px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.descripcion {
+  margin-top: 6px;
+}
+
+header img {
+  display: block;
+  border-radius: 55%;
+}
