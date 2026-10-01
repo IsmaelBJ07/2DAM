@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  flex: 0 0 30%;
+  min-width: 220px;
+  padding: 20px;
+  color: #24313a;
+  background-color: #ffffff;
+  border-right: 1px solid #d5dce2;
+}
+
+aside h2 {
+  margin-bottom: 20px;
+  color: #1f3a5f;
+}
+
+aside p {
+  padding: 10px 0;
+  border-bottom: 1px solid #e1e5e8;
+  overflow-wrap: anywhere;
+}

@@ -1,35 +1,14 @@
-import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe, NgOptimizedImage],
+  standalone: true,
+  imports: [HeaderComponent, MainLayoutComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'c  v-angular';
-  //Cabecera
-  nombre = 'Ismael';
-  apellidos = 'Belhach Jimenez';
+export class AppComponent {}
 
-  //Aside
-  ciudad = 'Málaga';
-  numero = '123456789';
-  correo = 'ismael.belhach@example.com';
-  github = 'https://github.com/ismaelbelhach';
-  idiomas = 'Español, Inglés';
-
-  // Main
-  sobreMi = 'Desarrollador interesado en aplicaciones web y nuevas tecnologías.';
-  empresa = 'REWE';
-  puesto = 'ABAP Junior Developer';
-  formacion = 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma';
-  tecnologias = ['HTML', 'CSS', 'Angular', 'Java', 'JS', 'SQL', 'Git', 'GitHub', 'ABAP'];
-  textoFooter = 'Currículum desarrollado con Angular';
-  fecha = new Date();
-
-  Foto = '/assets/imagenes/foto.jpg';
-
-}

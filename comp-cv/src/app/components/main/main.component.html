@@ -1,0 +1,26 @@
+<main>
+  <section>
+    <h2>SOBRE MÍ</h2>
+    <p>{{ sobreMi }}</p>
+  </section>
+
+  <section>
+    <h2>EXPERIENCIA</h2>
+    <h3>{{ empresa }}</h3>
+    <p>{{ puesto }}</p>
+  </section>
+
+  <section>
+    <h2>FORMACIÓN</h2>
+    <p>{{ formacion }}</p>
+  </section>
+
+  <section>
+    <h2>TECNOLOGÍAS</h2>
+    <ul>
+      @for (tecnologia of tecnologias; track tecnologia) {
+        <li>{{ tecnologia }}</li>
+      }
+    </ul>
+  </section>
+</main>
