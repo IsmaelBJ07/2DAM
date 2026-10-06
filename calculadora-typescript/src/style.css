@@ -10,13 +10,21 @@ body {
   min-width: 300px;
   min-height: 100vh;
   margin: 0;
-  display: grid;
-  place-items: center;
   padding: 24px;
 }
 
+#aplicacion {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+.calculadoras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
 .calculadora {
-  width: min(100%, 320px);
   padding: 18px;
   border: 2px solid #b9bec2;
   border-radius: 14px;
@@ -24,34 +32,26 @@ body {
   box-shadow: 0 8px 0 #a6aaad, 0 16px 28px rgb(30 35 38 / 18%);
 }
 
-.pantalla {
+.calculadora h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.calculadora output {
+  display: block;
   min-height: 82px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   padding: 10px 12px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
   border: 3px solid #8d9690;
   border-radius: 5px;
   background: #dce8cd;
   box-shadow: inset 0 2px 5px rgb(0 0 0 / 12%);
-}
-
-.etiqueta-pantalla {
-  color: #56634f;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.pantalla output {
-  width: 100%;
   overflow: hidden;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: 'Courier New', monospace;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
 }
 
@@ -91,7 +91,8 @@ button:active {
   grid-column: span 2;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 600px) {
+  .calculadoras { grid-template-columns: 1fr; }
   .calculadora { padding: 14px; }
   .teclas { gap: 7px; }
   button { height: 48px; }

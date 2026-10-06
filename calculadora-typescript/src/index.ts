@@ -1,95 +1,127 @@
 import './style.css';
 
 const aplicacion = document.querySelector<HTMLDivElement>('#aplicacion');
-
 if (!aplicacion) throw new Error('No se encontró el elemento principal de la página.');
 
-aplicacion.innerHTML = `
-  <main class="calculadora" aria-label="Calculadora">
-    <div class="pantalla" aria-live="polite">
-      <output id="pantalla">0</output>
-    </div>
-    <div class="teclas">
-      <button class="tecla-funcion" data-tecla="borrar">AC</button>
-      <button class="tecla-funcion" data-tecla="signo">+/-</button>
-      <button class="tecla-funcion" data-tecla="porcentaje">%</button>
-      <button class="tecla-operacion" data-tecla="/">÷</button>
-      <button data-tecla="7">7</button>
-      <button data-tecla="8">8</button>
-      <button data-tecla="9">9</button>
-      <button class="tecla-operacion" data-tecla="*">×</button>
-      <button data-tecla="4">4</button>
-      <button data-tecla="5">5</button>
-      <button data-tecla="6">6</button>
-      <button class="tecla-operacion" data-tecla="-">−</button>
-      <button data-tecla="1">1</button>
-      <button data-tecla="2">2</button>
-      <button data-tecla="3">3</button>
-      <button class="tecla-operacion" data-tecla="+">+</button>
-      <button class="tecla-cero" data-tecla="0">0</button>
-      <button data-tecla=".">.</button>
-      <button class="tecla-operacion tecla-igual" data-tecla="igual">=</button>
-    </div>
-  </main>
-`;
 
-const pantalla = document.querySelector<HTMLOutputElement>('#pantalla');
-if (!pantalla) throw new Error('No se encontró la pantalla.');
+aplicacion.innerHTML = '<main class="calculadoras" aria-label="Calculadoras"></main>';
+const contenedor = aplicacion.querySelector<HTMLElement>('.calculadoras');
+if (!contenedor) throw new Error('No se encontró el contenedor de calculadoras.');
 
-let primerNumero = 0;
-let operacion = '';
-let limpiarPantalla = true;
 
-const botones = document.querySelectorAll<HTMLButtonElement>('.teclas button');
 
-botones.forEach((boton) => {
-  boton.addEventListener('click', () => {
-    const tecla = boton.getAttribute('data-tecla');
+
+const teclas = [
+  ['AC', 'borrar', 'funcion'], ['+/-', 'signo', 'funcion'], ['%', 'porcentaje', 'funcion'], ['÷', '/', 'operacion'],
+  ['7', '7', ''], ['8', '8', ''], ['9', '9', ''], ['×', '*', 'operacion'],
+  ['4', '4', ''], ['5', '5', ''], ['6', '6', ''], ['−', '-', 'operacion'],
+  ['1', '1', ''], ['2', '2', ''], ['3', '3', ''], ['+', '+', 'operacion'],
+  ['0', '0', 'cero'], ['.', '.', ''], ['=', 'igual', 'operacion'],
+];
+
+
+
+
+class Calculadora {
+  private pantalla: HTMLOutputElement;
+  private primerNumero = 0;
+  private operacion = '';
+  private limpiarPantalla = true;
+
+
+
+  constructor(contenedor: HTMLElement, numero: number) {
+    const elemento = document.createElement('section');
+    elemento.className = 'calculadora';
+    elemento.setAttribute('aria-label', `Calculadora ${numero}`);
+    elemento.innerHTML = `
+      <h2>Calculadora ${numero}</h2>
+      <output aria-live="polite">0</output>
+      <div class="teclas">
+        ${teclas.map(([texto, tecla, estilo]) =>
+          `<button class="${estilo ? `tecla-${estilo}` : ''}" data-tecla="${tecla}">${texto}</button>`
+        ).join('')}
+      </div>
+    `;
+    contenedor.append(elemento);
+
+
+
+    const pantalla = elemento.querySelector<HTMLOutputElement>('output');
+    if (!pantalla) throw new Error('No se encontró la pantalla de la calculadora.');
+    this.pantalla = pantalla;
+
+    elemento.querySelectorAll<HTMLButtonElement>('button').forEach((boton) => {
+      boton.addEventListener('click', () => this.pulsar(boton.dataset.tecla));
+    });
+  }
+
+
+
+
+  
+
+  private pulsar(tecla?: string): void {
     if (!tecla) return;
 
-    if (tecla >= '0' && tecla <= '9') {
-      if (limpiarPantalla || pantalla.value === '0' || pantalla.value === 'Error') {
-        pantalla.value = tecla;
-      } else {
-        pantalla.value = pantalla.value + tecla;
-      }
-      limpiarPantalla = false;
-    } else if (tecla === '.') {
-      if (limpiarPantalla || pantalla.value === 'Error') {
-        pantalla.value = '0.';
-        limpiarPantalla = false;
-      } else if (!pantalla.value.includes('.')) {
-        pantalla.value = pantalla.value + '.';
-      }
-    } else if (tecla === 'borrar') {
-      pantalla.value = '0';
-      primerNumero = 0;
-      operacion = '';
-      limpiarPantalla = true;
-    } else if (tecla === 'signo' && pantalla.value !== 'Error') {
-      pantalla.value = String(Number(pantalla.value) * -1);
-    } else if (tecla === 'porcentaje' && pantalla.value !== 'Error') {
-      pantalla.value = String(Number(pantalla.value) / 100);
-    } else if (tecla === '+' || tecla === '-' || tecla === '*' || tecla === '/') {
-      primerNumero = Number(pantalla.value);
-      operacion = tecla;
-      limpiarPantalla = true;
-    } else if (tecla === 'igual') {
-      const segundoNumero = Number(pantalla.value);
-
-      if (operacion === '+') pantalla.value = String(primerNumero + segundoNumero);
-      if (operacion === '-') pantalla.value = String(primerNumero - segundoNumero);
-      if (operacion === '*') pantalla.value = String(primerNumero * segundoNumero);
-      if (operacion === '/') {
-        if (segundoNumero === 0) {
-          pantalla.value = 'Error';
-        } else {
-          pantalla.value = String(primerNumero / segundoNumero);
-        }
-      }
-
-      operacion = '';
-      limpiarPantalla = true;
+    if (/^\d$/.test(tecla)) {
+      this.pantalla.value = this.limpiarPantalla || this.pantalla.value === '0' || this.pantalla.value === 'Error'
+        ? tecla
+        : this.pantalla.value + tecla;
+      this.limpiarPantalla = false;
+      return;
     }
-  });
-});
+
+    switch (tecla) {
+      case '.':
+        if (this.limpiarPantalla || this.pantalla.value === 'Error') {
+          this.pantalla.value = '0.';
+          this.limpiarPantalla = false;
+        } else if (!this.pantalla.value.includes('.')) {
+          this.pantalla.value += '.';
+        }
+        break;
+      case 'borrar':
+        this.pantalla.value = '0';
+        this.primerNumero = 0;
+        this.operacion = '';
+        this.limpiarPantalla = true;
+        break;
+      case 'signo':
+        if (this.pantalla.value !== 'Error') this.pantalla.value = String(-Number(this.pantalla.value));
+        break;
+      case 'porcentaje':
+        if (this.pantalla.value !== 'Error') this.pantalla.value = String(Number(this.pantalla.value) / 100);
+        break;
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        this.primerNumero = Number(this.pantalla.value);
+        this.operacion = tecla;
+        this.limpiarPantalla = true;
+        break;
+      case 'igual': {
+        const segundoNumero = Number(this.pantalla.value);
+        const operaciones: Record<string, number> = {
+          '+': this.primerNumero + segundoNumero,
+          '-': this.primerNumero - segundoNumero,
+          '*': this.primerNumero * segundoNumero,
+          '/': this.primerNumero / segundoNumero,
+        };
+        if (this.operacion) {
+          this.pantalla.value = this.operacion === '/' && segundoNumero === 0
+            ? 'Error'
+            : String(operaciones[this.operacion]);
+        }
+        this.operacion = '';
+        this.limpiarPantalla = true;
+        break;
+      }
+    }
+  }
+}
+
+for (let numero = 1; numero <= 4; numero += 1) {
+  new Calculadora(contenedor, numero);
+}
