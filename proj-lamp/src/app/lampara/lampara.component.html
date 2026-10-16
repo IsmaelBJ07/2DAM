@@ -1,0 +1,19 @@
+<section class="lampara" [class.lampara--desenchufada]="!enchufada()" [class.lampara--encendida]="encendida && enchufada()">
+  <div class="bombilla" aria-label="lampara">
+    <span class="foco"></span>
+  </div>
+
+  @if (enchufada()) {
+    <p class="estado">lampara enchufada</p>
+  } @else {
+    <p class="estado">lampara desenchufada</p>
+  }
+
+  <button type="button" class="boton" [disabled]="!enchufada()" (click)="cambiarEstado()">
+    @if (encendida) {
+      APAGAR
+    } @else {
+      ENCENDER
+    }
+  </button>
+</section>

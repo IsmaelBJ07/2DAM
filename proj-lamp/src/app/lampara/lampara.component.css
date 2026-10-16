@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.lampara {
+  margin-top: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.bombilla {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #ddd;
+  display: grid;
+  place-items: center;
+}
+
+.foco {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+.lampara--encendida .bombilla {
+  background: #ffd54a;
+}
+
+.lampara--encendida .foco {
+  background: #ffb300;
+}
+
+.lampara--desenchufada {
+  opacity: 0.5;
+}
+
+.estado {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.boton {
+  width: 100%;
+  border: none;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.boton:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
