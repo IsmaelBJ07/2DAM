@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.termostato {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.temperatura-padre {
+  margin: 15px 0;
+  text-align: center;
+}

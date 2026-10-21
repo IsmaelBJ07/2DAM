@@ -1,0 +1,31 @@
+.panel-display {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.lectura {
+  margin: 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.alarma,
+.estado-normal {
+  margin: 0;
+  font-weight: 700;
+}
+
+.alarma {
+  color: #b00020;
+}
+
+.estado-normal {
+  color: #247a39;
+}

@@ -1,0 +1,16 @@
+<main class="termostato">
+  <h1>Termostato</h1>
+  <p class="temperatura-padre">Control padre recibe: {{ temperatura }} ºC</p>
+
+  <app-control-temperatura
+    [temperatura]="temperatura"
+    [umbral]="umbral"
+    (temperatureOutput)="onCambioTemperatura($event)"
+    (umbralOutput)="onCambioUmbral($event)"
+  ></app-control-temperatura>
+
+  <app-display-temperatura
+    [temperatura]="temperatura"
+    [umbral]="umbral"
+  ></app-display-temperatura>
+</main>

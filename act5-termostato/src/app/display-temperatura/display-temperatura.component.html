@@ -1,0 +1,6 @@
+<section class="panel-display" aria-labelledby="titulo-display">
+  <h2 id="titulo-display">Temperatura actual</h2>
+  <p class="lectura">{{ temperatura() }} ºC</p>
+  <p class="alarma" [hidden]="!alarma" role="alert">Temperatura alta</p>
+  <p class="estado-normal" [hidden]="alarma">Temperatura normal</p>
+</section>

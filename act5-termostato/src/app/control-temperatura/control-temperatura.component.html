@@ -1,0 +1,13 @@
+<section class="panel-control" aria-labelledby="titulo-control">
+  <h2 id="titulo-control">Control de temperatura</h2>
+
+  <div class="controles-temperatura">
+    <button type="button" aria-label="Bajar temperatura" (click)="onClickDecTemp()">−</button>
+    <p>{{ temperatura() }} ºC</p>
+    <button type="button" aria-label="Subir temperatura" (click)="onClickTemp()">+</button>
+  </div>
+
+  <label for="umbral">Umbral de alarma (ºC)</label>
+  <input id="umbral" type="text" [value]="umbral()" (input)="onInput($event)">
+  <p class="mensaje-error" [hidden]="!mensajeError" role="alert">{{ mensajeError }}</p>
+</section>
