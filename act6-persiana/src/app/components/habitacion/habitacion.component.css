@@ -1,0 +1,33 @@
+.habitacion {
+  padding: clamp(1.2rem, 4vw, 1.75rem);
+  background: rgb(255 255 255 / 92%);
+  border: 1px solid #dce8eb;
+  border-radius: 20px;
+  box-shadow: 0 14px 36px rgb(31 61 75 / 8%);
+}
+
+h2 {
+  margin: 0 0 1.1rem;
+  color: #19334a;
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.55rem 0;
+  color: #65788a;
+  font-size: 0.95rem;
+}
+
+p:last-of-type {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #dce8eb;
+  border-radius: 11px;
+  background: #f5f9f9;
+  color: #31586a;
+  font-weight: 650;
+}

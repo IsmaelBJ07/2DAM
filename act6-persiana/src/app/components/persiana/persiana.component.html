@@ -1,0 +1,12 @@
+<section class="persiana">
+  <h3>PERSIANA</h3>
+  <div class="ventana" aria-hidden="true">
+    <div class="cristal"></div>
+    <div class="lamas" [class.abierta]="estado === 'ABIERTA'"></div>
+  </div>
+  <p>Persiana id.: #1</p>
+  <p>Estado: {{ estado }}</p>
+  <button type="button" [disabled]="!corriente" (click)="cambiarEstado()">
+    {{ estado === 'CERRADA' ? 'Subir' : 'Bajar' }}
+  </button>
+</section>

@@ -1,0 +1,10 @@
+<section class="habitacion">
+  <h2>HABITACIÓN</h2>
+  <p>Habitación id.: #1</p>
+  <p>Corriente: {{ corriente ? 'ON' : 'OFF' }}</p>
+
+  <app-persiana
+    [corriente]="corriente"
+    (estadoChange)="onEstadoPersianaChange($event)">
+  </app-persiana>
+</section>

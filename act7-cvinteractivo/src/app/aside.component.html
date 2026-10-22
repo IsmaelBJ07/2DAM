@@ -1,0 +1,12 @@
+<aside>
+  <h2>Contacto</h2>
+  <button (click)="mostrarContacto = !mostrarContacto">Mostrar / ocultar datos de contacto</button>
+
+  @if (mostrarContacto) {
+    <p>Ciudad: {{ ciudad() }}</p>
+    <p>Teléfono: {{ numero() }}</p>
+    <p>Correo: {{ correo() }}</p>
+    <p>GitHub: {{ github() }}</p>
+    <p>Idiomas: {{ idiomas() }}</p>
+  }
+</aside>

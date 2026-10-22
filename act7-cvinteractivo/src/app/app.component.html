@@ -1,0 +1,18 @@
+<app-header
+  [foto]="Foto"
+  [seccionActiva]="seccionActiva"
+  (seccionSeleccionada)="cambiarSeccion($event)">
+</app-header>
+
+<app-main-layout
+  [seccion]="seccionActiva"
+  [sobreMi]="sobreMi"
+  [formacion]="formacion"
+  [ciudad]="ciudad"
+  [numero]="numero"
+  [correo]="correo"
+  [github]="github"
+  [idiomas]="idiomas">
+</app-main-layout>
+
+<app-footer [texto]="textoFooter"></app-footer>

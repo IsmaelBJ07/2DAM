@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  padding: 25px;
+  color: white;
+  background-color: #1f3a5f;
+}
+
+header img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.activo {
+  color: white;
+  background-color: #426a9e;
+}

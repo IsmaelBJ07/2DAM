@@ -1,0 +1,101 @@
+.persiana {
+  margin-top: 1.15rem;
+  padding: clamp(1rem, 3vw, 1.35rem);
+  background: linear-gradient(145deg, #f3f8f8, #f7f8f4);
+  border: 1px solid #dce8eb;
+  border-radius: 16px;
+}
+
+h3 {
+  margin: 0 0 0.9rem;
+  color: #19334a;
+  font-size: 0.95rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+}
+
+.ventana {
+  position: relative;
+  height: 130px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  background: #dcebed;
+  box-shadow: 0 0 0 1px #c8d9dc, 0 5px 12px rgb(31 61 75 / 10%);
+}
+
+.cristal {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 49%, rgb(255 255 255 / 80%) 49% 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgb(255 255 255 / 80%) 49% 51%, transparent 51%),
+    linear-gradient(160deg, #b9dfda 0%, #dcebdc 55%, #f2ddb1 100%);
+}
+
+.lamas {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d18335 0,
+    #d18335 9px,
+    #b96c25 10px,
+    #b96c25 12px
+  );
+  box-shadow: 0 3px 8px rgb(25 51 74 / 24%);
+  transition: height 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lamas.abierta {
+  height: 0;
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.55rem 0;
+  color: #65788a;
+  font-size: 0.93rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: #d18335;
+  color: #fff;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgb(209 131 53 / 17%);
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: #b96c25;
+  box-shadow: 0 8px 16px rgb(209 131 53 / 23%);
+  transform: translateY(-1px);
+}
+
+button:focus-visible {
+  outline: 3px solid #e8bd88;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  background: #aebbc2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamas {
+    transition-duration: 0.01ms;
+  }
+}

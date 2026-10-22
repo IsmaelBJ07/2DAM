@@ -1,0 +1,25 @@
+<header>
+  <h1>Ismael Belhach Jimenez</h1>
+  <img [src]="foto()" alt="Foto de Ismael" width="120" height="120">
+
+  <nav>
+    <button
+      [class.activo]="seccionActiva() === 'resumen'"
+      [disabled]="seccionActiva() === 'resumen'"
+      (click)="seccionSeleccionada.emit('resumen')">
+      Resumen
+    </button>
+    <button
+      [class.activo]="seccionActiva() === 'experiencia'"
+      [disabled]="seccionActiva() === 'experiencia'"
+      (click)="seccionSeleccionada.emit('experiencia')">
+      Experiencia
+    </button>
+    <button
+      [class.activo]="seccionActiva() === 'formacion'"
+      [disabled]="seccionActiva() === 'formacion'"
+      (click)="seccionSeleccionada.emit('formacion')">
+      Formación
+    </button>
+  </nav>
+</header>
