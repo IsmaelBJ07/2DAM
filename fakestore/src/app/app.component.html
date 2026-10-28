@@ -1,0 +1,21 @@
+<main>
+  <header class="encabezado">
+    <p class="marca">FAKE STORE</p>
+    <h1>Catálogo de productos</h1>
+  </header>
+
+  <section class="catalogo" aria-label="Catálogo de productos">
+    @for (product of products; track product.id) {
+      <article class="producto">
+        <div class="imagen-producto">
+          <img [src]="product.image" [alt]="product.title">
+        </div>
+        <div class="detalles-producto">
+          <h2>{{ product.title }}</h2>
+          <p class="categoria">Categoría: {{ product.category }}</p>
+          <p class="precio">Precio: {{ product.price }} €</p>
+        </div>
+      </article>
+    }
+  </section>
+</main>
