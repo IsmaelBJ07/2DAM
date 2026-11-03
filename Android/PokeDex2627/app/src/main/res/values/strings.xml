@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PokeApp2627</string>
+    <string name="error_loading">Could not load the Pokémon</string>
+    <string name="retry">Retry</string>
+</resources>

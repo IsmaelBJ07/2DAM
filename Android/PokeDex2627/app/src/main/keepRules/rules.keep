@@ -1,0 +1,12 @@
+# Add project specific R8 rules here.
+# AGP will combine all keep rule files in src/main/keepRules to pass to R8
+#
+# For more details, see
+#   https://d.android.com/r/tools/r8/keep-rules
+
+# NUEVO: Gson usa reflexión sobre estos modelos. Sin esto, R8 renombra/elimina
+# los campos en release y el JSON dejaría de parsearse.
+-keep class com.alanturing.pokeapp2627.features.pokemon.data.remote.PokemonResult { *; }
+-keep class com.alanturing.pokeapp2627.features.pokemon.data.remote.PokemonSprites { *; }
+-keep class com.alanturing.pokeapp2627.features.pokemon.data.remote.PokemonListResult { *; }
+-keep class com.alanturing.pokeapp2627.features.pokemon.data.remote.PokemonListItemResult { *; }
