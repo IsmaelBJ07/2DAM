@@ -1,0 +1,110 @@
+<main class="contenedor">
+  <header class="encabezado">
+    <p class="etiqueta">Catálogo</p>
+    <h1>{{ titulo }}</h1>
+    <p class="introduccion">Busca y explora videojuegos por título, género, plataforma o precio.</p>
+  </header>
+
+  <section class="controles" aria-label="Filtros de videojuegos">
+    <div class="grupo-control">
+      <label for="buscar-id">Buscar videojuego por ID</label>
+      <div class="fila-control">
+        <input #entradaId id="buscar-id" type="number" min="1" placeholder="Ej. 5">
+        <button type="button" class="boton boton-secundario" (click)="buscarPorId(entradaId.value)">Buscar</button>
+      </div>
+    </div>
+
+    <div class="grupo-control">
+      <label for="buscar-titulo">Buscar por título</label>
+      <div class="fila-control">
+        <input
+          id="buscar-titulo"
+          type="search"
+          [(ngModel)]="textoTitulo"
+          placeholder="Ej. Dragon"
+          (keyup.enter)="buscarPorTitulo()"
+        >
+        <button type="button" class="boton boton-secundario" (click)="buscarPorTitulo()">Buscar</button>
+      </div>
+    </div>
+
+    <div class="grupo-control">
+      <label for="genero">Género</label>
+      <select #selectorGenero id="genero" (change)="cambiarGenero(selectorGenero.value)">
+        <option value="">Todos</option>
+        <option value="Action">Acción</option>
+        <option value="Adventure">Aventura</option>
+        <option value="Platform">Plataformas</option>
+        <option value="RPG">RPG</option>
+        <option value="Racing">Carreras</option>
+        <option value="Simulation">Simulación</option>
+        <option value="Sports">Deportes</option>
+        <option value="Strategy">Estrategia</option>
+      </select>
+    </div>
+
+    <div class="grupo-control">
+      <label for="plataforma">Plataforma</label>
+      <select #selectorPlataforma id="plataforma" (change)="cambiarPlataforma(selectorPlataforma.value)">
+        <option value="">Todas</option>
+        <option value="PC">PC</option>
+        <option value="PlayStation">PlayStation</option>
+        <option value="Xbox">Xbox</option>
+        <option value="Switch">Switch</option>
+      </select>
+    </div>
+
+    <div class="grupo-control grupo-precio">
+      <label>Rango de precio</label>
+      <div class="fila-control">
+        <input type="number" min="0" step="0.01" [(ngModel)]="precioMinimo" placeholder="Mínimo" aria-label="Precio mínimo">
+        <span class="separador-precio">a</span>
+        <input type="number" min="0" step="0.01" [(ngModel)]="precioMaximo" placeholder="Máximo" aria-label="Precio máximo">
+        <button type="button" class="boton boton-secundario" (click)="aplicarPrecios()">Aplicar</button>
+      </div>
+    </div>
+  </section>
+
+  @if (mensajeError) {
+    <p class="mensaje-error" role="alert">{{ mensajeError }}</p>
+  }
+
+  <section class="resultados" aria-label="Resultados del catálogo">
+    <div class="encabezado-resultados">
+      <h2>Videojuegos</h2>
+      <p>{{ totalElementos }} registros encontrados</p>
+    </div>
+
+    @if (videojuegos.length > 0) {
+      <div class="lista-videojuegos">
+        @for (videojuego of videojuegos; track videojuego.id) {
+          <article class="tarjeta-videojuego">
+            <div class="icono-videojuego" aria-hidden="true">{{ videojuego.title.charAt(0) }}</div>
+            <div class="datos-videojuego">
+              <h3>{{ videojuego.title }}</h3>
+              <p>{{ videojuego.genre }} <span aria-hidden="true">·</span> {{ videojuego.platform }}</p>
+            </div>
+            <p class="precio">{{ videojuego.price.toFixed(2) }} €</p>
+          </article>
+        }
+      </div>
+    } @else if (!mensajeError) {
+      <p class="sin-resultados">No se encontraron videojuegos.</p>
+    }
+
+    <nav class="paginacion" aria-label="Paginación">
+      <button type="button" class="boton boton-secundario" (click)="paginaAnterior()" [disabled]="paginaActual === 1">
+        Anterior
+      </button>
+      <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+      <button
+        type="button"
+        class="boton boton-principal"
+        (click)="paginaSiguiente()"
+        [disabled]="paginaActual >= totalPaginas"
+      >
+        Siguiente
+      </button>
+    </nav>
+  </section>
+</main>
